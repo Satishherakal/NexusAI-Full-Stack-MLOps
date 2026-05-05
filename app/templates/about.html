@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto py-12 px-6">
+    <div class="text-center mb-16">
+        <h1 class="text-6xl font-black gradient-text mb-6">About NexusAI</h1>
+        <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+            NexusAI is not just a social platform; it's a window into the future of 
+            <span class="text-lime-400 font-bold italic">Neural Social Intelligence</span>.
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div class="glass-green p-8 rounded-3xl border border-lime-500/20">
+            <div class="w-12 h-12 bg-lime-500/10 rounded-2xl flex items-center justify-center text-lime-400 mb-6">
+                <i class="fas fa-brain text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">MLOps Excellence</h3>
+            <p class="text-slate-400 leading-relaxed">
+                Experience a full MLOps lifecycle from data ingestion to automated retraining. 
+                Monitor system health, rollback models, and augment datasets directly from the dashboard.
+            </p>
+        </div>
+
+        <div class="glass-green p-8 rounded-3xl border border-lime-500/20">
+            <div class="w-12 h-12 bg-lime-500/10 rounded-2xl flex items-center justify-center text-lime-400 mb-6">
+                <i class="fas fa-atom text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Quantum Matching</h3>
+            <p class="text-slate-400 leading-relaxed">
+                Our recommendation engine uses PennyLane Quantum circuits to calculate 
+                entanglement scores between users, ensuring the highest level of social synergy.
+            </p>
+        </div>
+
+        <div class="glass-green p-8 rounded-3xl border border-lime-500/20">
+            <div class="w-12 h-12 bg-lime-500/10 rounded-2xl flex items-center justify-center text-lime-400 mb-6">
+                <i class="fas fa-eye text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Deep Learning Vision</h3>
+            <p class="text-slate-400 leading-relaxed">
+                Powered by MobileNetV2, every image uploaded is instantly classified, 
+                detecting hardware, nature, and infrastructure with high-confidence inference.
+            </p>
+        </div>
+
+        <div class="glass-green p-8 rounded-3xl border border-lime-500/20">
+            <div class="w-12 h-12 bg-lime-500/10 rounded-2xl flex items-center justify-center text-lime-400 mb-6">
+                <i class="fas fa-shield-alt text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Neural Security</h3>
+            <p class="text-slate-400 leading-relaxed">
+                Secure authentication powered by Bcrypt hashing and cookie-based session 
+                management, providing a safe environment for your digital neural presence.
+            </p>
+        </div>
+    </div>
+
+    <div class="glass p-10 rounded-3xl border border-white/5 text-center">
+        <h2 class="text-3xl font-black mb-6">The Architect</h2>
+        <div class="flex flex-col items-center">
+            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Satish" class="w-24 h-24 rounded-full border-4 border-lime-500/30 mb-4" alt="Creator">
+            <p class="text-xl font-bold text-white mb-2">Satish H.</p>
+            <p class="text-slate-500 uppercase tracking-widest text-xs font-black">Lead AI Engineer & MLOps Architect</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

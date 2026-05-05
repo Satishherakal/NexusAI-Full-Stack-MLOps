@@ -466,6 +466,12 @@ async def export_logs_action():
             f.write(log + "\n")
     return {"success": True, "file": log_file}
 
+@app.get("/about", response_class=HTMLResponse)
+async def about_page(request: Request):
+    user = get_current_user(request)
+    display_user = user or {"name": "Guest", "notifications": [], "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Guest"}
+    return templates.TemplateResponse(request, "about.html", {"user": display_user, "logged_in": user is not None})
+
 @app.get("/register", response_class=HTMLResponse)
 async def register_page(request: Request):
     return templates.TemplateResponse(request, "register.html", {"user": None, "logged_in": False})
