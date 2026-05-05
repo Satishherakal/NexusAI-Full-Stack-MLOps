@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto">
+    <div class="mb-12">
+        <h2 class="text-5xl font-black tracking-tighter mb-4">Neural <span class="gradient-text">Alerts</span></h2>
+        <p class="text-slate-600 text-[10px] font-black uppercase tracking-[0.4em]">Satellite Data & System Insights</p>
+    </div>
+
+    <div class="space-y-6">
+        {% for note in user.notifications %}
+        <div class="glass p-8 rounded-[2.5rem] border border-white/5 flex gap-6 items-start group hover:border-lime-500/20 transition-all">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center 
+                {% if note.type == 'success' %}bg-lime-500/10 text-lime-400
+                {% elif note.type == 'error' %}bg-rose-500/10 text-rose-400
+                {% else %}bg-white/5 text-slate-400{% endif %} border border-white/5 shadow-xl">
+                {% if note.type == 'success' %}<i class="fas fa-check-circle"></i>
+                {% elif note.type == 'error' %}<i class="fas fa-exclamation-triangle"></i>
+                {% else %}<i class="fas fa-info-circle"></i>{% endif %}
+            </div>
+            <div class="flex-1">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-[9px] font-black uppercase tracking-widest text-slate-600">{{ note.time }}</span>
+                    <span class="text-[8px] font-black uppercase tracking-widest px-2 py-1 bg-white/5 rounded-lg text-slate-500">{{ note.type }}</span>
+                </div>
+                <p class="text-slate-200 font-medium leading-relaxed">{{ note.text }}</p>
+            </div>
+        </div>
+        {% endfor %}
+
+        {% if not user.notifications %}
+        <div class="text-center py-20 glass rounded-[3rem] border border-dashed border-white/10">
+            <i class="fas fa-satellite-dish text-4xl text-slate-800 mb-6"></i>
+            <p class="text-slate-600 font-bold uppercase tracking-widest text-xs">No active signals in the buffer</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

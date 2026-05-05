@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-6xl mx-auto">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-10">
+        <div>
+            <h2 class="text-7xl font-black tracking-tighter mb-5">Explore <span class="gradient-text">Signals</span></h2>
+            <p class="text-slate-600 font-black uppercase tracking-[0.4em] text-[10px]">Trending neural patterns across the Nexus</p>
+        </div>
+        <div class="flex gap-5 overflow-x-auto pb-5 w-full md:w-auto">
+            <span class="px-8 py-3 rounded-2xl btn-green text-[10px] font-black uppercase tracking-widest cursor-pointer shadow-xl">All Channels</span>
+            {% for tag in tags %}
+            <span class="px-8 py-3 rounded-2xl glass border border-white/5 text-slate-500 text-[10px] font-black uppercase tracking-widest hover:border-lime-500/40 hover:text-lime-400 transition-all cursor-pointer">#{{ tag }}</span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Trending Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        {% for post in posts %}
+        <div class="glass rounded-[3.5rem] overflow-hidden border border-white/5 group hover:border-lime-500/20 transition-all">
+            {% if post.image %}
+            <div class="h-64 overflow-hidden relative">
+                <img src="{{ post.image }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[3s]" alt="Explore">
+                <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-90"></div>
+                <div class="absolute bottom-8 left-8">
+                    <span class="px-5 py-2.5 glass-green rounded-2xl text-[10px] font-black uppercase tracking-widest text-lime-400 border border-lime-500/20">
+                        {{ post.display_tag }}
+                    </span>
+                </div>
+            </div>
+            {% else %}
+            <div class="h-64 bg-white/[0.02] flex items-center justify-center p-12">
+                <p class="text-slate-600 text-center italic text-base font-medium leading-relaxed">"{{ post.content[:100] }}..."</p>
+            </div>
+            {% endif %}
+            
+            <div class="p-10">
+                <div class="flex items-center gap-5 mb-8">
+                    <img src="{{ post.avatar }}" class="w-12 h-12 rounded-2xl bg-slate-900 border border-white/5" alt="Avatar">
+                    <span class="text-[10px] font-black uppercase tracking-widest text-slate-500">{{ post.user }}</span>
+                </div>
+                <p class="text-slate-300 text-[15px] line-clamp-3 mb-10 font-medium leading-relaxed">
+                    {{ post.content }}
+                </p>
+                <div class="flex justify-between items-center text-[9px] font-black uppercase tracking-[0.3em] text-slate-700 border-t border-white/5 pt-8">
+                    <span>{{ post.time }}</span>
+                    <span class="text-lime-500">{{ post.ml_vibe }}</span>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

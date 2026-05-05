@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="min-h-[80vh] flex items-center justify-center px-4">
+    <div class="glass max-w-md w-full rounded-[3.5rem] p-12 border border-white/5 relative overflow-hidden">
+        <!-- Decoration -->
+        <div class="absolute -top-20 -right-20 w-48 h-48 bg-lime-400/10 rounded-full blur-[80px]"></div>
+        <div class="absolute -bottom-20 -left-20 w-48 h-48 bg-white/5 rounded-full blur-[80px]"></div>
+
+        <div class="text-center mb-12 relative">
+            <div class="w-20 h-20 rounded-3xl bg-white flex items-center justify-center text-lime-600 shadow-2xl mx-auto mb-8">
+                <i class="fas fa-fingerprint text-3xl"></i>
+            </div>
+            <h2 class="text-4xl font-black tracking-tighter mb-3">Sync <span class="gradient-text">Node</span></h2>
+            <p class="text-slate-600 text-[10px] font-black uppercase tracking-[0.4em]">Establish Secure Link</p>
+        </div>
+
+        <form action="/login" method="post" class="space-y-8 relative">
+            <div class="space-y-3">
+                <label class="text-[9px] font-black uppercase tracking-[0.3em] text-slate-500 ml-5">Neural ID (Email)</label>
+                <input type="email" name="email" value="nexus@ai.com" required class="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-slate-200 focus:outline-none focus:border-lime-500/50 transition-all font-bold placeholder:text-slate-800">
+            </div>
+            <div class="space-y-3">
+                <label class="text-[9px] font-black uppercase tracking-[0.3em] text-slate-500 ml-5">Access Hash (Password)</label>
+                <input type="password" name="password" placeholder="••••••••" required class="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-slate-200 focus:outline-none focus:border-lime-500/50 transition-all font-bold placeholder:text-slate-800">
+            </div>
+            
+            <div class="flex items-center justify-between px-3 text-[10px] font-black uppercase tracking-widest text-slate-600">
+                <label class="flex items-center gap-3 cursor-pointer hover:text-lime-400 transition-all">
+                    <input type="checkbox" class="rounded border-slate-800 bg-slate-900 text-lime-500">
+                    Keep Synced
+                </label>
+                <a href="#" class="hover:text-white transition-all underline decoration-lime-500/30">Lost Link?</a>
+            </div>
+
+            <button type="submit" class="w-full py-5 rounded-3xl btn-green font-black text-xs uppercase tracking-[0.4em] transition-all hover:scale-[1.02] active:scale-95 shadow-2xl">
+                Initialize Sync
+            </button>
+        </form>
+
+        <div class="mt-12 text-center text-[9px] font-black uppercase tracking-widest text-slate-700 relative">
+            Not yet synchronized? <a href="/register" class="text-lime-400 hover:underline ml-2">Join Nexus</a>
+        </div>
+        
+        <div class="mt-8 p-5 rounded-2xl bg-lime-400/5 border border-lime-500/10 text-[9px] font-bold text-lime-500/60 leading-relaxed">
+            <i class="fas fa-info-circle mr-2"></i> Demo Credentials:<br>
+            Email: <span class="text-lime-400">nexus@ai.com</span><br>
+            Password: <span class="text-lime-400">parrot2026</span>
+        </div>
+    </div>
+</div>
+{% endblock %}

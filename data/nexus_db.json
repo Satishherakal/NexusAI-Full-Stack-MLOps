@@ -1,0 +1,166 @@
+{
+    "users": {
+        "satishherakal1@gmail.com": {
+            "name": "Satish H.",
+            "email": "satishherakal1@gmail.com",
+            "password": "$2b$12$eTlkcKtcFguDFAE58IMaU.5qr6Rfh0sv9lnOkpkI2vFiNX5Ylsc2G",
+            "avatar": "/static/uploads/avatar_WhatsApp Image 2021-04-15 at 12.28.51 PM.jpeg",
+            "bio": "Lead MLOps Architect | Neural Infrastructure Specialist\r\n\r\nArchitecting the future of scalable AI at NexusAI. Currently focused on optimizing high-frequency neural inference loops and deploying automated transfer learning pipelines (v1.1.0). Specializing in Quantum-Inspired Affinity Logic and Model Observability.\r\n\r\n\u201cEngineering the bridge between raw data and neural intelligence",
+            "score": 98.4,
+            "notifications": []
+        },
+        "satishmh25@gmail.com": {
+            "name": "Ayush",
+            "email": "satishmh25@gmail.com",
+            "password": "$2b$12$GfZRuo0WyMGaDgGREstfv.WxM4LezwtgYVeHJUF9qHABnbwHSGyBi",
+            "avatar": "/static/uploads/avatar_ferraari.jfif",
+            "bio": "Exploring the intersection of Quantum Mechanics and Deep Learning. \u269b\ufe0f Currently working on entangled neural networks and Hilbert-space recommendation engines. Always looking for that perfect QML sync score. Let's build the future together! \ud83d\ude80 #QuantumAI #QML #Researcher",
+            "score": 44.0,
+            "notifications": []
+        },
+        "satishherakalmtech25@gmail.com": {
+            "name": "Sathvik_N_G",
+            "email": "satishherakalmtech25@gmail.com",
+            "password": "$2b$12$Eq3ZVVEVEJFkuk345PbOhuNk6LFwSFZwo0tpjFyM7vSgfDfbsMIFO",
+            "avatar": "/static/uploads/avatar_charles3.jpg",
+            "bio": "MLOps Architect focused on building resilient production pipelines. \ud83d\udee0\ufe0f I turn raw models into scalable, monitored systems. If it\u2019s not automated, it\u2019s not ready! Obsessed with latency, throughput, and system health. \ud83d\udcc8\u26a1 #MLOps #SystemDesign #Engineering",
+            "score": 75.0,
+            "notifications": []
+        }
+    },
+    "posts": [
+        {
+            "user": "QuantumDev",
+            "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Dev",
+            "content": "Just finished training the new Quantum Recommendation circuit using PennyLane!",
+            "image": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=2000",
+            "raw_tag": "Quantum Mesh",
+            "ml_vibe": "Positive",
+            "ml_score": 0.982,
+            "likes": 1240,
+            "comments": 84,
+            "time": "2 hours ago",
+            "display_tag": "AI Detected: Optimized Quantum Mesh"
+        },
+        {
+            "user": "Ayush",
+            "avatar": "/static/uploads/avatar_ferraari.jfif",
+            "content": "Just analyzed a new batch of neural entanglement data! The overlap in the Hilbert space is looking incredible for our user-matching circuit. Quantum ML is definitely the future of social connectivity. \u269b\ufe0f\ud83d\udce1 #QuantumComputing #QML ",
+            "image": null,
+            "raw_tag": "General",
+            "ml_vibe": "Positive",
+            "ml_score": 0.982,
+            "likes": 1,
+            "comments": 0,
+            "time": "Just now",
+            "display_tag": "AI Detected: Optimized General"
+        },
+        {
+            "user": "Ayush",
+            "avatar": "/static/uploads/avatar_ferraari.jfif",
+            "content": "Recently attended 2 days workshop on Quantum Computing , blown away to see where technology is heading",
+            "image": "/static/uploads/post_QUnAIN.png",
+            "raw_tag": "rain barrel",
+            "ml_vibe": "Positive",
+            "ml_score": 0.982,
+            "likes": 2,
+            "comments": 0,
+            "time": "Just now",
+            "display_tag": "AI Detected: Quantum Hardware (Cryostat)"
+        },
+        {
+            "user": "Sathvik_N_G",
+            "avatar": "/static/uploads/avatar_charles3.jpg",
+            "content": "Watching the telemetry signals on the MLOps Dashboard. \ud83d\udcca We've hit a peak in inference throughput today. The MobileNet optimization is paying off\u2014latency is down, and system health is solid! \ud83d\ude80\u26a1 #MLOps #SystemHealth #Performance",
+            "image": null,
+            "raw_tag": "General",
+            "ml_vibe": "Positive",
+            "ml_score": 0.982,
+            "likes": 1,
+            "comments": 0,
+            "time": "Just now",
+            "display_tag": "AI Detected: Optimized General"
+        },
+        {
+            "user": "Sathvik_N_G",
+            "avatar": "/static/uploads/avatar_charles3.jpg",
+            "content": "Just visited the new high-performance computing cluster! \ud83d\udda5\ufe0f Hardening the infrastructure to ensure our neural signals have zero downtime. Scaling these server nodes is the true challenge of MLOps. \u26a1\u26d3\ufe0f #DataCenter #Infrastructure #ScalingAI #MLOps",
+            "image": "/static/uploads/post_ml.jpg",
+            "raw_tag": "Optimized prison",
+            "ml_vibe": "Positive",
+            "ml_score": 0.982,
+            "likes": 1,
+            "comments": 0,
+            "time": "Just now",
+            "display_tag": "AI Detected: High-Performance Compute Cluster"
+        },
+        {
+            "user": "Satish H.",
+            "avatar": "/static/uploads/avatar_WhatsApp Image 2021-04-15 at 12.28.51 PM.jpeg",
+            "content": "Analyzing the latest benchmarks from our Quantum Neural Core. \ud83e\udde0\ud83d\udc8e We're seeing a 40% reduction in inference latency after the v1.1.0 retrain. The bridge between classical compute and quantum affinity is finally stabilizing",
+            "image": "/static/uploads/post_ai.png",
+            "raw_tag": "digital watch",
+            "ml_vibe": "Positive",
+            "ml_score": 0.982,
+            "likes": 0,
+            "comments": 0,
+            "time": "Just now",
+            "display_tag": "AI Detected: Quantum Neural Interface Core"
+        },
+        {
+            "user": "Satish H.",
+            "avatar": "/static/uploads/avatar_WhatsApp Image 2021-04-15 at 12.28.51 PM.jpeg",
+            "content": "xtremely disappointed with the current server downtime. \ud83d\ude21 The inference pipeline is failing consistently, and the latency is unacceptable. This is a complete failure of our MLOps orchestration. We need a full system rollback immediately.",
+            "image": null,
+            "raw_tag": "General",
+            "ml_vibe": "Critical",
+            "ml_score": -0.75,
+            "likes": 0,
+            "comments": 0,
+            "time": "Just now",
+            "display_tag": "AI Detected: Optimized General"
+        },
+        {
+            "user": "Satish H.",
+            "avatar": "/static/uploads/avatar_WhatsApp Image 2021-04-15 at 12.28.51 PM.jpeg",
+            "content": "nice one !!!",
+            "image": "/static/uploads/post_nat.jpg",
+            "raw_tag": "Optimized barn",
+            "ml_vibe": "Positive",
+            "ml_score": 1.0,
+            "likes": 0,
+            "comments": 0,
+            "time": "Just now",
+            "display_tag": "AI Detected: High-Resolution Nature Environment"
+        },
+        {
+            "user": "Satish H.",
+            "avatar": "/static/uploads/avatar_WhatsApp Image 2021-04-15 at 12.28.51 PM.jpeg",
+            "content": "Testing our new High-Performance Supercomputer Cluster...",
+            "image": "/static/uploads/post_IBM_Blue_Gene_P_supercomputer.jpg",
+            "raw_tag": "Optimized vending machine",
+            "ml_vibe": "Positive",
+            "ml_score": 0.13636363636363635,
+            "likes": 0,
+            "comments": 0,
+            "time": "Just now"
+        }
+    ],
+    "mlops": {
+        "total_inferences": 127,
+        "avg_confidence": 61.5,
+        "avg_latency": 33.76,
+        "model_version": "MobileNetV2_v1.1.0 (Retrained)",
+        "status": "Healthy",
+        "is_retrained": true,
+        "logs": [
+            "[SYSTEM] NexusAI Kernel v1.0.4 initialized.",
+            "[SYSTEM] MLOps Intelligence Loop: ACTIVE (Base Model)",
+            "[TRAIN] Initiating transfer learning on Multi-Dataset (ImageNet + 0 Active Samples)",
+            "[TRAIN] Merging custom human-labeled data into specialized weights (NexusData v1.1)...",
+            "[TRAIN] Fine-tuning final layer weights for specialized hardware detection...",
+            "[DEPLOY] Model v1.1.0 successfully deployed to production nodes."
+        ],
+        "corrections": {}
+    }
+}

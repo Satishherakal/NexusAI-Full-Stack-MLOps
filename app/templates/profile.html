@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto">
+    <div class="glass rounded-[3.5rem] p-12 border border-white/5 relative overflow-hidden">
+        <!-- Background Accents -->
+        <div class="absolute -top-24 -right-24 w-64 h-64 bg-lime-400/10 rounded-full blur-[100px]"></div>
+
+        <div class="text-center mb-16 relative">
+            <h2 class="text-5xl font-black tracking-tighter mb-3">Neural <span class="gradient-text">Node</span></h2>
+            <p class="text-slate-600 text-[10px] font-black uppercase tracking-[0.4em] mb-12">Synaptic Configuration</p>
+
+            <form action="/profile" method="post" enctype="multipart/form-data" class="space-y-10 relative">
+                <div class="flex flex-col items-center mb-16">
+                    <div class="relative group">
+                        <img src="{{ user.avatar }}" class="w-36 h-36 rounded-[2.5rem] bg-slate-900 border-2 border-lime-500/30 p-1 object-cover shadow-2xl" id="avatar-preview" alt="Avatar">
+                        <label class="absolute -bottom-2 -right-2 w-12 h-12 rounded-2xl btn-green flex items-center justify-center cursor-pointer hover:scale-110 transition-all shadow-xl border-4 border-black">
+                            <i class="fas fa-camera text-sm"></i>
+                            <input type="file" name="avatar" class="hidden" accept="image/*" onchange="document.getElementById('avatar-preview').src = window.URL.createObjectURL(this.files[0])">
+                        </label>
+                    </div>
+                    <p class="text-[9px] font-black uppercase tracking-widest text-slate-600 mt-6">Update Neural Identifier</p>
+                </div>
+
+                <div class="space-y-4 text-left">
+                    <label class="text-[9px] font-black uppercase tracking-[0.4em] text-slate-500 ml-5">Entity Label</label>
+                    <input type="text" name="name" value="{{ user.name }}" class="w-full bg-white/5 border border-white/10 rounded-3xl px-8 py-5 text-slate-200 focus:outline-none focus:border-lime-500/50 transition-all font-black tracking-tight">
+                </div>
+                
+                <div class="space-y-4 text-left">
+                    <label class="text-[9px] font-black uppercase tracking-[0.4em] text-slate-500 ml-5">Neural Description</label>
+                    <textarea name="bio" rows="4" class="w-full bg-white/5 border border-white/10 rounded-3xl px-8 py-5 text-slate-200 focus:outline-none focus:border-lime-500/50 transition-all font-medium leading-relaxed">{{ user.bio }}</textarea>
+                </div>
+
+                <div class="pt-6">
+                    <button type="submit" onclick="showSimulation()" class="w-full py-6 rounded-3xl btn-green font-black text-xs uppercase tracking-[0.4em] shadow-2xl transition-all hover:scale-[1.02] active:scale-95">
+                        Broadcast Updates
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Quantum Simulation Overlay -->
+<div id="quantum-overlay" class="fixed inset-0 bg-black/95 z-[9999] hidden flex-col items-center justify-center p-12 text-center">
+    <div class="relative w-64 h-64 mb-12">
+        <div class="absolute inset-0 border-4 border-lime-500/20 rounded-full animate-ping"></div>
+        <div class="absolute inset-4 border-2 border-lime-400/40 rounded-full animate-spin duration-[3s]"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+            <i class="fas fa-atom text-6xl text-lime-400 animate-pulse"></i>
+        </div>
+    </div>
+    <h3 class="text-3xl font-black tracking-tighter mb-4 gradient-text">Neural Re-Mapping</h3>
+    <p class="text-slate-600 text-[10px] font-black uppercase tracking-[0.4em] max-w-sm mx-auto">
+        Quantum circuit measuring Hilbert Space overlaps for new synaptic matches...
+    </p>
+    <div class="w-48 h-1 bg-white/5 rounded-full mt-12 overflow-hidden">
+        <div class="h-full bg-lime-400 shadow-[0_0_15px_#a3e635] animate-[loading_2s_ease-in-out_infinite]"></div>
+    </div>
+</div>
+
+<style>
+    @keyframes loading {
+        0% { width: 0; transform: translateX(-100%); }
+        50% { width: 100%; transform: translateX(0); }
+        100% { width: 0; transform: translateX(100%); }
+    }
+</style>
+
+<script>
+    function showSimulation() {
+        const overlay = document.getElementById('quantum-overlay');
+        overlay.classList.remove('hidden');
+        overlay.classList.add('flex');
+    }
+</script>
+{% endblock %}

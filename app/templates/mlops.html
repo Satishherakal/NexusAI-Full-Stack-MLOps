@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-6xl mx-auto">
+    <div class="flex items-center justify-between mb-12">
+        <div>
+            <h1 class="text-5xl font-black tracking-tighter gradient-text">MLOps Control</h1>
+            <p class="text-slate-500 text-[10px] font-black uppercase tracking-[0.4em] mt-2">Inference Telemetry & Model Observability</p>
+        </div>
+        <div class="px-6 py-3 glass-green rounded-2xl border border-lime-500/20">
+            <span class="text-lime-400 font-black text-xs animate-pulse mr-3">●</span>
+            <span class="text-[9px] font-black uppercase tracking-widest text-lime-500">Live Feedback Active</span>
+        </div>
+    </div>
+
+    <!-- Metrics Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div class="glass p-8 rounded-[2.5rem] border border-white/5">
+            <p class="text-[9px] font-black text-slate-600 uppercase tracking-widest mb-4">Inference Latency</p>
+            <h3 class="text-4xl font-black text-white tracking-tight">{{ "%.2f"|format(metrics.avg_latency) }}<span class="text-xs text-slate-700 ml-2">ms</span></h3>
+            <div class="w-full h-1 bg-white/5 rounded-full mt-6 overflow-hidden">
+                <div class="h-full bg-lime-400" style="width: 45%"></div>
+            </div>
+        </div>
+        <div class="glass p-8 rounded-[2.5rem] border border-white/5">
+            <p class="text-[9px] font-black text-slate-600 uppercase tracking-widest mb-4">Model Confidence</p>
+            <h3 class="text-4xl font-black text-white tracking-tight">{{ "%.1f"|format(metrics.avg_confidence) }}<span class="text-xs text-slate-700 ml-2">%</span></h3>
+            <div class="w-full h-1 bg-white/5 rounded-full mt-6 overflow-hidden">
+                <div class="h-full bg-lime-400" style="width: {{ metrics.avg_confidence }}%"></div>
+            </div>
+        </div>
+        <div class="glass p-8 rounded-[2.5rem] border border-white/5">
+            <p class="text-[9px] font-black text-slate-600 uppercase tracking-widest mb-4">Total Signals</p>
+            <h3 class="text-4xl font-black text-white tracking-tight">{{ metrics.total_inferences }}</h3>
+            <p class="text-[8px] text-lime-500/50 font-bold mt-4">DATA THROUGHPUT STABLE</p>
+        </div>
+        <div class="glass p-8 rounded-[2.5rem] border border-white/5">
+            <p class="text-[9px] font-black text-slate-600 uppercase tracking-widest mb-4">System Status</p>
+            <h3 class="text-2xl font-black text-lime-400 tracking-tighter">{{ metrics.status }}</h3>
+            <p class="text-[8px] text-slate-700 font-bold mt-4">VERSION: {{ metrics.model_version }}</p>
+        </div>
+    </div>
+
+    <!-- Detailed Charts -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="glass p-10 rounded-[3rem] border border-white/5 relative overflow-hidden">
+            <h4 class="text-xs font-black uppercase tracking-[0.3em] mb-10 text-slate-400">Deep Learning Pipeline Flow</h4>
+            <div class="space-y-6">
+                <div class="flex items-center justify-between text-[9px] font-black uppercase tracking-widest text-slate-600">
+                    <span>Preprocessing (Transforms)</span>
+                    <span class="text-lime-500">2.4ms</span>
+                </div>
+                <div class="w-full h-1.5 bg-white/5 rounded-full"><div class="h-full bg-lime-400 w-full rounded-full"></div></div>
+                
+                <div class="flex items-center justify-between text-[9px] font-black uppercase tracking-widest text-slate-600 pt-4">
+                    <span>Neural Weights Loading</span>
+                    <span class="text-lime-500">14.1ms</span>
+                </div>
+                <div class="w-full h-1.5 bg-white/5 rounded-full"><div class="h-full bg-lime-400 w-[80%] rounded-full"></div></div>
+
+                <div class="flex items-center justify-between text-[9px] font-black uppercase tracking-widest text-slate-600 pt-4">
+                    <span>Final Layer Inference</span>
+                    <span class="text-lime-500">{{ "%.2f"|format(metrics.avg_latency * 0.4) }}ms</span>
+                </div>
+                <div class="w-full h-1.5 bg-white/5 rounded-full"><div class="h-full bg-lime-400 w-[40%] rounded-full shadow-[0_0_10px_#a3e635]"></div></div>
+            </div>
+        </div>
+
+        <div class="glass p-10 rounded-[3rem] border border-white/5">
+            <h4 class="text-xs font-black uppercase tracking-[0.3em] mb-10 text-slate-400">MLOps Management Actions</h4>
+            <div class="grid grid-cols-2 gap-4">
+                <button onclick="runAction('retrain')" class="py-6 rounded-2xl bg-white/5 border border-white/10 text-[9px] font-black uppercase tracking-widest hover:bg-lime-400 hover:text-black transition-all">
+                    Trigger Retrain
+                </button>
+                <button onclick="runAction('rollback')" class="py-6 rounded-2xl bg-white/5 border border-white/10 text-[9px] font-black uppercase tracking-widest hover:bg-rose-500 hover:text-white transition-all">
+                    Rollback v1.0.3
+                </button>
+                <button onclick="runAction('augment')" class="py-6 rounded-2xl bg-white/5 border border-white/10 text-[9px] font-black uppercase tracking-widest hover:bg-blue-500 hover:text-white transition-all">
+                    Augment Data
+                </button>
+                <button onclick="runAction('export')" class="py-6 rounded-2xl bg-white/5 border border-white/10 text-[9px] font-black uppercase tracking-widest hover:bg-slate-700 hover:text-white transition-all">
+                    Export Logs
+                </button>
+            </div>
+        <!-- LIVE SYSTEM CONSOLE -->
+        <div class="col-span-full mt-10">
+            <div class="glass p-10 rounded-[3rem] border border-white/5">
+                <div class="flex justify-between items-center mb-8">
+                    <h4 class="text-xs font-black uppercase tracking-[0.3em] text-slate-400 flex items-center gap-4">
+                        <span class="w-2 h-2 bg-rose-500 rounded-full animate-ping"></span>
+                        Live System Console
+                    </h4>
+                    <span class="text-[9px] font-black text-slate-600 tracking-widest uppercase">Kernel Mode: Active</span>
+                </div>
+                <div class="bg-black/40 rounded-2xl p-8 font-mono text-[10px] leading-relaxed border border-white/5 h-48 overflow-y-auto space-y-2">
+                    {% for log in metrics.logs[::-1] %}
+                    <p class="{% if '[TRAIN]' in log %}text-lime-400{% elif '[DATA]' in log %}text-blue-400{% elif '[DEPLOY]' in log %}text-amber-400{% else %}text-slate-500{% endif %}">
+                        {{ log }}
+                    </p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    async function runAction(action) {
+        if (action === 'export') {
+            const response = await fetch(`/mlops/export`, { method: 'POST' });
+            const data = await response.json();
+            alert("Generating MLOps Audit Report...\n\n[SUCCESS] Report saved to: " + data.file);
+            return;
+        }
+        
+        if (action === 'retrain') {
+            alert("Retraining Triggered! The system is now processing new data. Please wait 5 seconds for completion...");
+            await fetch(`/mlops/retrain`, { method: 'POST' });
+            location.reload();
+            setTimeout(() => { location.reload(); }, 6000);
+        } else {
+            await fetch(`/mlops/${action}`, { method: 'POST' });
+            location.reload();
+        }
+    }
+</script>
+{% endblock %}
